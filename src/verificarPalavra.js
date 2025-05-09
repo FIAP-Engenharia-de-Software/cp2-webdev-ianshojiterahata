@@ -10,8 +10,29 @@
 // - Remove espaços extras no início e no final da frase antes de realizar a verificação.
 
 function verificarPalavra(frase, palavraBusca) {
-  // TODO: implementar função
+  const fraseLimpa = frase.trim();
+ 
+  if(fraseLimpa.length < 5){
+    return "A frase é muito curta";
+  }
+  const fraseMinuscula = fraseLimpa.toLowerCase();
+  const buscaMinuscula = palavraBusca.toLowerCase();
+ 
+  if(fraseMinuscula.includes(buscaMinuscula)){
+    return "A frase contém a palavra de busca";
+  }else{
+    return "A frase não contém a palavra de busca";
+  }
 }
+ 
+function corrigirValor(valor) {
+  const numero = +valor;
+  if(typeof numero === 'number' && numero === numero){
+    return numero;
+  }
+  return "Valor inválido";
+}
+ 
 
 //NÃO REMOVA O CÓDIGO ABAIXO
 module.exports = { verificarPalavra };
